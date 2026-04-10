@@ -171,7 +171,7 @@ At rank=8, vanilla outperforms FFA across all epsilon values. The gap narrows as
 </p>
 
 **The key finding: FFA and vanilla show opposite rank-scaling behavior under DP.**
-All of the below findings are preliminary and will need to be verified with different datasets like MNLI and QNLI.
+
 
 - **FFA scales strongly with rank:** 85.55% at rank=2 to 91.63% at rank=16 (+6.08%). Higher rank gives more expressive capacity through the frozen random projection.
 - **Vanilla is flat/declining with rank:** 90.14% at rank=2 to 89.33% at rank=16 (-0.81%). More parameters = more noise dimensions, and the extra capacity doesn't compensate.
@@ -187,6 +187,7 @@ All of the below findings are preliminary and will need to be verified with diff
 FFA converges slower than vanilla (zero-initialized B needs more epochs to warm up) but achieves lower final loss at high ranks. Vanilla converges fast but plateaus early.
 
 ### Key Findings
+All of the below findings are preliminary and will need to be verified with different datasets like MNLI and QNLI.
 
 1. **Under DP, higher LoRA rank is better** — confirming [Xu et al., 2024](https://arxiv.org/abs/2405.06368) (DP-DyLoRA). Our results refine this: the effect is strong for FFA but absent for vanilla.
 2. **FFA at high rank is the best strategy.** FFA rank=16 (91.63%) beats all vanilla configurations and is only 1.83% below the non-private baseline.
