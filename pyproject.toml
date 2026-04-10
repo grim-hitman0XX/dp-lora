@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dp-lora"
+version = "0.1.0"
+description = "Differentially private LoRA fine-tuning for HuggingFace Transformers"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [
+    { name = "Ashish Srivastava", email = "ashish.srivastava1919@gmail.com" }
+]
+keywords = ["differential-privacy", "lora", "fine-tuning", "transformers", "dp-sgd", "peft"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "torch>=2.0",
+    "transformers>=4.30",
+    "peft>=0.6",
+    "opacus>=1.4",
+    "dp-accounting>=0.4",
+    "scipy>=1.10",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "pytest-cov", "datasets"]
+examples = ["datasets", "tqdm", "matplotlib"]
+
+[project.urls]
+Repository = "https://github.com/grim-hitman0XX/dp-lora"
+
+[tool.setuptools.packages.find]
+where = ["src"]
